@@ -9,10 +9,16 @@ import { FormBuilder } from "@angular/forms";
 })
 export class CartComponent {
   items;
+  checkoutForm;
   constructor(
     private cartService: CartService,
     private formBuilder: FormBuilder
-  ) {}
+  ) {
+    this.checkoutForm = this.formBuilder.group({
+      name: '',
+      address: '',
+    })
+  }
   ngOnInit() {
     this.items = this.cartService.getItems();
   }
